@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+    Nome: <br>
+    <input id="input_nome"><br>
+    Nome da sua empresa: <br>
+    <input id="input_empresa"><br>
+    Invetimento na sua cozinha: <br>
+    <input type="number" id="input_investimento"><br>
+    Quantidade de funcionarios: <br>
+    <input type="number" id="input_funcionarios"><br>
+    Quantidade de Entrada de Gás: <br>
+    <input type="number" id="input_entrada_gas"><br>
+    Faturamento anual da cozinha: <br>
+    <input type="number" id ="input_faturamento"> <br>
+    <button onclick="analisar()">
+        Analisar Situação
+    </button><br>
+    <div id="mostrar">
+</div>
+
+
+</body>
+</html>
+
+<Script>
+    function analisar(){
+        const nome = input_nome.value
+        const empresa = input_empresa.value
+        const investimento = Number(input_investimento.value)
+        const funcionarios = Number(input_funcionarios.value)
+        const entradaGas = Number(input_entrada_gas.value)
+        const faturamento = Number(input_faturamento.value)
+        
+    
+        var gastoFuncionarioFerido = (funcionarios * 0.30)+ 15000
+        var gastoFuncionarioM = ((funcionarios * 0.70) + 15000 ) * 100000
+        var total = gastoFuncionarioFerido + gastoFuncionarioM
+        var totalanual = (total/faturamento) * 100
+
+
+        mostrar.innerHTML = `Bem-vindo(a) ${nome}! <br><br>
+    De acordo com as informações mencionadas, nossa equipe GásBusters analizou sua situação.<br>
+    O(a) ${empresa}, possui ${entradaGas} entradas de gás, ${funcionarios} funcionarios e um investimento
+    de ${investimento}R$ em sua cozinha.<br><br>
+
+    Nossa analise mostra que em caso de incendio a perca total é de 100% da cozinha, <br>
+    cerca de 70% dos funcinarios feridos, sendo que 30% vai de arrasta<br><br>
+
+    De acordo com suas informações, determinamos que sua perda sera de ${total}R$,<br>
+     equivalente a ${totalanual.toFixed(2)}% de sua arrecadação anual<br><br>
+
+    faturamento anual de uma cozinha industrial(restaurante grande)
+    Faturamento Anual Estimado: R$ 2.000.000 a R$ 5.000.000+<br><br>
+    
+    site https://www.bombeiros.ce.gov.br/2023/06/13/corpo-de-bombeiros-atendeu-876-ocorrencias-com-gases-em-2023/
+
+    `
+
+    
+    }
+</Script>
